@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Cancelled | EmpoweredWear by Dr. Tina</title>
+  <meta name="description" content="Your order was cancelled. No charges were made. Shop EmpoweredWear by Dr. Tina anytime." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #B6873C;
+      --teal: #009C9A;
+      --black: #000000;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .logo-wrap {
+      margin-bottom: 2rem;
+    }
+    .logo-wrap img {
+      height: 90px;
+      width: auto;
+    }
+
+    .icon-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      border: 3px solid #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    .icon-circle svg {
+      width: 44px;
+      height: 44px;
+      stroke: #888;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #aaa;
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .subtitle strong {
+      color: var(--gold);
+    }
+
+    .info-box {
+      background: #111;
+      border: 1px solid #333;
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+    .info-box p {
+      font-size: 0.95rem;
+      color: #bbb;
+      line-height: 1.7;
+    }
+    .info-box p + p { margin-top: 0.5rem; }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #d4a055);
+      color: #000;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #555;
+      color: #aaa;
+    }
+
+    .social-row {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+    }
+    .social-row a {
+      color: #666;
+      transition: color 0.2s;
+    }
+    .social-row a:hover { color: var(--gold); }
+    .social-row svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-wrap">
+    <a href="/"><img src="assets/logo_transparent.png" alt="EmpoweredWear by Dr. Tina" /></a>
+  </div>
+
+  <div class="icon-circle">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </div>
+
+  <h1>Order Cancelled</h1>
+  <p class="subtitle">
+    No worries — <strong>no charges were made</strong> to your account.<br />
+    Your cart items are still waiting for you whenever you're ready.
+  </p>
+
+  <div class="info-box">
+    <p>If you experienced any issues during checkout, please don't hesitate to reach out — we're happy to help.</p>
+    <p>Email: <a href="mailto:empoweredwearbydrtina@gmail.com" style="color:var(--gold);">empoweredwearbydrtina@gmail.com</a></p>
+    <p>Phone: <a href="tel:+16014794457" style="color:var(--gold);">(601) 479-4457</a></p>
+  </div>
+
+  <div class="btn-group">
+    <a href="/" class="btn btn-primary">Return to Shop</a>
+    <a href="mailto:empoweredwearbydrtina@gmail.com" class="btn btn-secondary">Contact Us</a>
+  </div>
+
+  <div class="social-row">
+    <a href="https://instagram.com/empoweredwearbydrtina" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://www.facebook.com/share/1Fa19AaNey/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    </a>
+    <a href="https://tiktok.com/@empoweredwearbydrtina" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.45a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+    </a>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 EmpoweredWear by Dr. Tina The Bridge Builder. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

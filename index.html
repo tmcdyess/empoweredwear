@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EmpoweredWear – Inspirational T-Shirts &amp; Apparel | Shop Online</title>
+  <meta name="description" content="Wear your message. EmpoweredWear by Dr. Tina The Bridge Builder — motivational apparel crafted from soft ringspun cotton, shipped worldwide. T-shirts from $17." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="EmpoweredWear – Inspirational T-Shirts &amp; Apparel" />
+  <meta property="og:description" content="Inspiration you can wear. Confidence you can feel. Motivational apparel delivered worldwide." />
+  <meta property="og:image" content="assets/hero.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #000000;
+      --gold:       #B6873C;
+      --gold-lt:    #d4a55a;
+      --teal:       #009C9A;
+      --teal-dk:    #007a78;
+      --white:      #ffffff;
+      --off-white:  #f9f6f1;
+      --gray:       #555555;
+      --light-gray: #e8e3dc;
+      --font-head:  'Montserrat', sans-serif;
+      --font-body:  'Open Sans', sans-serif;
+      --radius:     50px;
+      --shadow:     0 4px 24px rgba(0,0,0,.12);
+      --transition: .3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--black); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+    img  { max-width: 100%; height: auto; display: block; }
+    a    { color: inherit; text-decoration: none; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+
+    .btn-shop {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .85rem 2.2rem;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 18px rgba(182,135,60,.35);
+    }
+    .btn-shop:hover, .btn-shop:focus-visible {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(182,135,60,.45);
+      outline: none;
+    }
+
+    section { padding: 5rem 0; }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      text-align: center;
+      margin-bottom: .5rem;
+      color: var(--black);
+    }
+    .section-subtitle { text-align: center; color: var(--gray); font-size: 1.05rem; margin-bottom: 3rem; }
+    .gold-rule { width: 60px; height: 4px; background: var(--gold); border-radius: 2px; margin: .75rem auto 1.5rem; }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 200;
+      background: var(--black); padding: .9rem 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,.4);
+    }
+    .site-nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; line-height: 1; }
+    .nav-logo { height: 64px; width: auto; display: block; }
+
+    /* Cart icon button in nav */
+    .cart-btn {
+      position: relative;
+      background: var(--gold);
+      border: none;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .65rem 1.6rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      transition: background var(--transition), transform .15s;
+    }
+    .cart-btn:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .cart-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+    .cart-count {
+      background: var(--teal);
+      color: var(--white);
+      font-size: .7rem;
+      font-weight: 900;
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      position: absolute;
+      top: -10px; right: -10px;
+      transition: transform .2s ease;
+      border: 2px solid var(--black);
+    }
+    .cart-count.bump { transform: scale(1.5); }
+
+    /* ── Hero ── */
+    .hero { position: relative; min-height: 92vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 0; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('assets/hero.jpg'); background-size: cover; background-position: center top; background-repeat: no-repeat; will-change: transform; }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.65) 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 2rem 1.25rem; max-width: 780px; }
+    .hero-headline { font-family: var(--font-head); font-weight: 900; font-size: clamp(2.2rem, 6vw, 4rem); color: var(--white); line-height: 1.15; margin-bottom: 1rem; text-shadow: 0 2px 16px rgba(0,0,0,.5); }
+    .hero-headline em { color: var(--gold); font-style: normal; }
+    .hero-sub { font-size: clamp(1rem, 2.5vw, 1.25rem); color: rgba(255,255,255,.85); margin-bottom: 2.2rem; letter-spacing: .04em; }
+    .hero-logo { display: block; margin: 0 auto 1.5rem; max-width: 320px; width: 100%; height: auto; }
+    .hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .4rem; color: rgba(255,255,255,.55); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; animation: bounce 2s infinite; }
+    .hero-scroll svg { width: 20px; height: 20px; }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+    /* ── Pricing Banner ── */
+    .pricing-note { background: var(--black); color: var(--white); text-align: center; padding: 1rem; font-size: .88rem; letter-spacing: .04em; line-height: 1.8; }
+    .pricing-note strong { color: var(--gold); }
+
+    /* ── Products ── */
+    #products { background: var(--off-white); }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+
+    .product-card {
+      border-radius: 16px; background: var(--white);
+      box-shadow: var(--shadow); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.15); }
+
+    .card-img-wrap {
+      width: 100%;
+      /* Use 1:2 aspect ratio to match shirt images (512x1024 / 768x1024) */
+      aspect-ratio: 1 / 2;
+      overflow: hidden; flex-shrink: 0;
+      position: relative; cursor: pointer;
+      background: #f5f5f5;
+    }
+    .card-img-wrap img {
+      width: 100%; height: 100%;
+      /* contain shows the full shirt without cropping */
+      object-fit: contain; object-position: center center;
+      transition: opacity .4s ease, transform .4s ease;
+      position: absolute; top: 0; left: 0;
+    }
+    .card-img-wrap img.img-front { opacity: 1; }
+    .card-img-wrap img.img-back  { opacity: 0; }
+    .card-img-wrap.show-back img.img-front { opacity: 0; }
+    .card-img-wrap.show-back img.img-back  { opacity: 1; }
+    /* Toggle badge — sits at the TOP so it never covers shirt text */
+    .img-toggle-badge {
+      position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,.62); color: #fff;
+      font-family: var(--font-head); font-size: .72rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .3rem .85rem; border-radius: 30px;
+      pointer-events: none; z-index: 2;
+      transition: opacity .3s ease;
+      white-space: nowrap;
+    }
+    .card-img-wrap .img-toggle-badge { opacity: .82; }
+    .card-img-wrap:hover .img-toggle-badge { opacity: 1; }
+
+    .card-body { padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; gap: .55rem; flex: 1; }
+
+    .card-name { font-family: var(--font-head); font-weight: 700; font-size: 1rem; color: var(--black); line-height: 1.3; }
+
+    .price-block { text-align: left; }
+    .price-base { font-family: var(--font-head); font-weight: 900; font-size: 1.25rem; color: var(--gold); display: block; }
+    .price-tiers { font-size: .75rem; color: var(--gray); margin-top: .1rem; line-height: 1.5; }
+
+    /* Size selector */
+    .size-select-wrap { width: 100%; }
+    .size-select-wrap label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--gray); display: block; margin-bottom: .3rem; }
+    .size-select {
+      width: 100%;
+      background: var(--white);
+      color: var(--black);
+      border: 1.5px solid var(--light-gray);
+      border-radius: 8px;
+      padding: .5rem .7rem;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B6873C' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .7rem center;
+      padding-right: 2rem;
+    }
+    .size-select:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+
+    /* Add to Cart button */
+    .btn-cart {
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+      background: var(--gold);
+      border: none;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .75rem 1.4rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background var(--transition), transform .15s ease;
+      width: 100%;
+      margin-top: auto;
+    }
+    .btn-cart svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+    .btn-cart:hover, .btn-cart:focus-visible { background: var(--gold-lt); outline: none; transform: translateY(-1px); }
+    .btn-cart.added { background: var(--teal); }
+
+    /* Color swatches */
+    .color-label { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--gray); margin-bottom: .3rem; display: flex; align-items: center; gap: .4rem; }
+    .color-label span.selected-name { color: var(--black); font-weight: 700; text-transform: capitalize; }
+    .color-swatches { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .25rem; }
+    .swatch {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      outline: none; flex-shrink: 0;
+    }
+    .swatch:hover { transform: scale(1.3); box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+    .swatch.active { border-color: var(--gold); box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--gold); transform: scale(1.2); }
+    /* White swatch needs a border to be visible */
+    .swatch[title="White"] { border-color: #ccc; }
+    .swatch[title="White"].active { border-color: var(--gold); }
+
+    /* ── CART OVERLAY ── */
+    .cart-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.6);
+      z-index: 300; opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+    /* ── CART DRAWER ── */
+    .cart-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(440px, 100vw);
+      background: var(--white);
+      z-index: 400;
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .35s cubic-bezier(.4,0,.2,1);
+      box-shadow: -6px 0 40px rgba(0,0,0,.25);
+    }
+    .cart-drawer.open { transform: translateX(0); }
+
+    .cart-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      background: var(--black);
+      flex-shrink: 0;
+    }
+    .cart-header h2 {
+      font-family: var(--font-head); font-weight: 900;
+      font-size: 1.15rem; color: var(--gold); letter-spacing: .06em;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .cart-header h2 svg { width: 20px; height: 20px; fill: none; stroke: var(--gold); stroke-width: 2; }
+    .cart-close-btn {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      cursor: pointer; color: var(--white); font-size: 1.3rem; line-height: 1;
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .cart-close-btn:hover { background: rgba(255,255,255,.25); }
+
+    /* Cart items scroll area */
+    .cart-items { flex: 1; overflow-y: auto; padding: 0; }
+
+    .cart-empty {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center; color: var(--gray); height: 100%;
+    }
+    .cart-empty svg { width: 64px; height: 64px; stroke: var(--light-gray); fill: none; margin-bottom: 1rem; }
+    .cart-empty p { font-size: 1rem; line-height: 1.6; }
+    .cart-empty .shop-link {
+      margin-top: 1.5rem;
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .65rem 1.8rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: none;
+      transition: background .2s;
+    }
+    .cart-empty .shop-link:hover { background: var(--gold-lt); }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--light-gray);
+      transition: background .2s;
+    }
+    .cart-item:hover { background: #fafafa; }
+    .cart-item-img {
+      width: 72px; height: 72px; border-radius: 10px;
+      object-fit: cover; object-position: top;
+      border: 1px solid var(--light-gray);
+    }
+    .cart-item-details { display: flex; flex-direction: column; gap: .2rem; }
+    .cart-item-name { font-family: var(--font-head); font-weight: 700; font-size: .9rem; color: var(--black); line-height: 1.3; }
+    .cart-item-meta { font-size: .78rem; color: var(--gray); }
+    .cart-item-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: .4rem; }
+    .cart-item-price { font-family: var(--font-head); font-weight: 900; font-size: 1rem; color: var(--gold); }
+
+    .qty-controls { display: flex; align-items: center; gap: .5rem; }
+    .qty-btn {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 1.5px solid var(--light-gray);
+      background: var(--white); cursor: pointer;
+      font-size: 1.1rem; font-weight: 700; color: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, border-color .2s, color .2s;
+      flex-shrink: 0; line-height: 1;
+    }
+    .qty-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+    .qty-display { font-family: var(--font-head); font-weight: 700; font-size: .95rem; min-width: 22px; text-align: center; }
+    .remove-btn {
+      background: none; border: none; cursor: pointer;
+      color: #bbb; font-size: .72rem;
+      display: flex; align-items: center; gap: .2rem;
+      transition: color .2s; padding: 0;
+    }
+    .remove-btn:hover { color: #cc2200; }
+
+    /* Cart footer */
+    .cart-footer {
+      padding: 1.25rem 1.5rem;
+      border-top: 2px solid var(--light-gray);
+      background: var(--off-white);
+      flex-shrink: 0;
+    }
+    .cart-totals { margin-bottom: .75rem; }
+    .cart-total-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .9rem; padding: .3rem 0; color: var(--gray);
+    }
+    .cart-total-row span:first-child { font-weight: 600; }
+    .cart-total-row.grand {
+      font-family: var(--font-head); font-weight: 900;
+      font-size: 1.15rem; color: var(--black);
+      border-top: 2px solid var(--light-gray);
+      padding-top: .65rem; margin-top: .35rem;
+    }
+    .cart-total-row.grand .total-amt { color: var(--gold); font-size: 1.3rem; }
+    .free-ship { color: var(--teal); font-weight: 700; }
+    .free-ship-banner {
+      background: linear-gradient(90deg, var(--teal) 0%, #00b8b6 100%);
+      color: var(--white); text-align: center;
+      padding: .5rem 1rem; font-size: .8rem; font-weight: 700;
+      border-radius: 8px; margin-bottom: .75rem;
+      letter-spacing: .04em;
+    }
+    .shipping-selector { margin-bottom: .75rem; }
+    .shipping-selector label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--gray); display: block; margin-bottom: .35rem; }
+    .shipping-options { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .ship-opt {
+      flex: 1; min-width: 120px;
+      border: 2px solid var(--light-gray);
+      border-radius: 10px; padding: .5rem .6rem;
+      cursor: pointer; background: var(--white);
+      transition: border-color .2s, background .2s;
+      text-align: center;
+    }
+    .ship-opt:hover { border-color: var(--gold-lt); }
+    .ship-opt.selected { border-color: var(--gold); background: #fffbf2; }
+    .ship-opt-name { font-family: var(--font-head); font-weight: 700; font-size: .78rem; color: var(--black); display: block; }
+    .ship-opt-price { font-family: var(--font-head); font-weight: 900; font-size: .9rem; color: var(--gold); display: block; margin-top: .1rem; }
+    .ship-opt-price.free-color { color: var(--teal); }
+    .ship-opt-days { font-size: .68rem; color: var(--gray); display: block; margin-top: .1rem; }
+
+    .btn-checkout {
+      width: 100%; padding: 1rem; border: none; border-radius: var(--radius);
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-lt) 100%);
+      color: var(--white);
+      font-family: var(--font-head); font-weight: 900; font-size: 1rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      cursor: pointer; transition: opacity .2s, transform .15s;
+      box-shadow: 0 4px 16px rgba(182,135,60,.4);
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+    }
+    .btn-checkout:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-checkout:disabled { background: var(--light-gray); color: var(--gray); cursor: not-allowed; transform: none; box-shadow: none; }
+    .btn-checkout svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+    .secure-note { text-align: center; font-size: .72rem; color: var(--gray); margin-top: .6rem; display: flex; align-items: center; justify-content: center; gap: .3rem; }
+    .secure-note svg { width: 12px; height: 12px; fill: var(--gray); }
+
+    /* ── Checkout Summary Modal ── */
+    .checkout-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.75);
+      z-index: 500; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity .3s ease;
+      padding: 1rem;
+    }
+    .checkout-overlay.open { opacity: 1; pointer-events: all; }
+
+    .checkout-modal {
+      background: var(--white); border-radius: 20px;
+      width: 100%; max-width: 540px; max-height: 90vh;
+      overflow-y: auto; box-shadow: 0 24px 80px rgba(0,0,0,.4);
+      transform: scale(.94) translateY(20px);
+      transition: transform .3s cubic-bezier(.4,0,.2,1);
+    }
+    .checkout-overlay.open .checkout-modal { transform: scale(1) translateY(0); }
+
+    .checkout-modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 1.75rem 1rem;
+      border-bottom: 2px solid var(--light-gray);
+      position: sticky; top: 0; background: var(--white); z-index: 1;
+    }
+    .checkout-modal-header h2 {
+      font-family: var(--font-head); font-weight: 900;
+      font-size: 1.2rem; color: var(--black);
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .checkout-modal-close {
+      background: var(--off-white); border: none; cursor: pointer;
+      color: var(--gray); font-size: 1.2rem; line-height: 1;
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, color .2s;
+    }
+    .checkout-modal-close:hover { background: var(--light-gray); color: var(--black); }
+
+    .checkout-modal-body { padding: 1.25rem 1.75rem 1.75rem; }
+
+    .order-line {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: .75rem 0; border-bottom: 1px solid var(--light-gray); gap: 1rem;
+    }
+    .order-line:last-of-type { border-bottom: none; }
+    .order-line-name { font-family: var(--font-head); font-weight: 700; font-size: .9rem; color: var(--black); }
+    .order-line-meta { font-size: .78rem; color: var(--gray); margin-top: .15rem; }
+    .order-line-price { font-family: var(--font-head); font-weight: 900; font-size: .95rem; color: var(--gold); white-space: nowrap; }
+
+    .order-summary-totals { background: var(--off-white); border-radius: 12px; padding: 1rem 1.25rem; margin-top: 1rem; }
+    .order-sum-row { display: flex; justify-content: space-between; font-size: .9rem; padding: .3rem 0; color: var(--gray); }
+    .order-sum-row span:first-child { font-weight: 600; }
+    .order-sum-row.grand { font-family: var(--font-head); font-weight: 900; font-size: 1.15rem; color: var(--black); border-top: 2px solid var(--light-gray); padding-top: .65rem; margin-top: .35rem; }
+    .order-sum-row.grand span:last-child { color: var(--gold); font-size: 1.25rem; }
+    .free { color: var(--teal); font-weight: 700; }
+
+    .checkout-note { font-size: .78rem; color: var(--gray); text-align: center; margin: 1rem 0 1.25rem; line-height: 1.5; }
+    .btn-pay {
+      display: flex; align-items: center; justify-content: center; gap: .6rem;
+      width: 100%; padding: 1.1rem;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-lt) 100%);
+      color: var(--white);
+      font-family: var(--font-head); font-weight: 900; font-size: 1.05rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      border-radius: var(--radius); border: none; cursor: pointer;
+      transition: opacity .2s, transform .15s;
+      box-shadow: 0 4px 20px rgba(182,135,60,.4);
+      text-decoration: none;
+    }
+    .btn-pay:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-pay svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+    /* ── Why EmpoweredWear ── */
+    #why { background: var(--white); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 2rem; margin-top: 1rem; }
+    .why-card { background: var(--off-white); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; border-bottom: 4px solid var(--gold); transition: transform var(--transition), box-shadow var(--transition); }
+    .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .why-icon { width: 56px; height: 56px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .why-icon svg { width: 28px; height: 28px; fill: var(--white); }
+    .why-card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; margin-bottom: .5rem; color: var(--black); }
+    .why-card p { font-size: .92rem; color: var(--gray); line-height: 1.55; }
+
+    /* ── Testimonials ── */
+    #testimonials { background: var(--black); }
+    #testimonials .section-title { color: var(--white); }
+    #testimonials .section-subtitle { color: rgba(255,255,255,.6); }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .testimonial-card { background: #111; border-left: 4px solid var(--gold); border-radius: 12px; padding: 2rem; }
+    .testimonial-text { font-size: 1.05rem; color: rgba(255,255,255,.88); line-height: 1.7; font-style: italic; }
+
+    /* ── Shipping Section ── */
+    #shipping { background: var(--off-white); padding: 4rem 0; }
+    .shipping-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .shipping-card { background: var(--white); border: 2px solid var(--light-gray); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition); }
+    .shipping-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+    .shipping-card.featured { border-color: var(--gold); background: linear-gradient(135deg, #fffbf2 0%, #fff8e8 100%); }
+    .shipping-icon { font-size: 2.4rem; margin-bottom: .75rem; display: block; }
+    .shipping-card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--black); margin-bottom: .4rem; }
+    .shipping-price { font-family: var(--font-head); font-weight: 900; font-size: 1.8rem; color: var(--gold); margin-bottom: .4rem; }
+    .shipping-price.free { color: var(--teal); }
+    .shipping-card p { font-size: .9rem; color: var(--gray); line-height: 1.5; }
+    .shipping-note { text-align: center; margin-top: 1.8rem; font-size: .95rem; color: var(--gray); }
+    .shipping-note strong { color: var(--teal); }
+
+    /* ── CTA Banner ── */
+    .cta-banner { background: linear-gradient(135deg, var(--gold) 0%, #8a5e1e 100%); padding: 5rem 0; text-align: center; }
+    .cta-banner h2 { font-family: var(--font-head); font-weight: 900; font-size: clamp(1.6rem, 4vw, 2.8rem); color: var(--white); margin-bottom: 1.5rem; text-shadow: 0 2px 8px rgba(0,0,0,.2); }
+    .cta-banner .btn-shop { background: var(--white); color: var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,.2); }
+    .cta-banner .btn-shop:hover { background: var(--off-white); color: var(--gold); }
+
+    /* ── Footer ── */
+    footer { background: var(--black); color: var(--white); padding: 3.5rem 0 2rem; text-align: center; }
+    .footer-logo { display: block; margin: 0 auto 1.2rem; max-width: 220px; width: 100%; height: auto; }
+    .footer-contact { margin-bottom: 1.5rem; }
+    .footer-contact a { color: var(--gold); font-size: .9rem; }
+    .footer-contact a:hover { text-decoration: underline; }
+    .social-icons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+    .social-icon { width: 44px; height: 44px; border-radius: 50%; background: #1a1a1a; border: 1px solid #333; display: flex; align-items: center; justify-content: center; transition: background var(--transition), border-color var(--transition), transform var(--transition); }
+    .social-icon:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-3px); }
+    .social-icon svg { width: 20px; height: 20px; fill: var(--white); }
+    .footer-copy { font-size: .78rem; color: rgba(255,255,255,.3); border-top: 1px solid #1e1e1e; padding-top: 1.5rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      /* aspect-ratio handles sizing on mobile — no fixed height override needed */
+      section { padding: 3.5rem 0; }
+      .cart-drawer { width: 100vw; }
+      .checkout-modal { border-radius: 16px 16px 0 0; align-self: flex-end; max-height: 95vh; }
+      .checkout-overlay { align-items: flex-end; padding: 0; }
+    }
+
+    /* ── Scroll-reveal ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .2s; }
+    .delay-3 { transition-delay: .3s; }
+    .delay-4 { transition-delay: .4s; }
+    .delay-5 { transition-delay: .5s; }
+    .delay-6 { transition-delay: .6s; }
+
+    /* ── Multicolor note ── */
+    .multicolor-strip { background: var(--off-white); border-top: 3px solid var(--gold); text-align: center; padding: .9rem 1rem; font-size: .88rem; color: var(--gray); }
+    .multicolor-strip strong { color: var(--black); }
+  </style>
+</head>
+
+<body>
+
+  <!-- CART OVERLAY -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+
+  <!-- CART DRAWER -->
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" role="dialog" aria-hidden="true">
+    <div class="cart-header">
+      <h2>
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Your Cart
+      </h2>
+      <button class="cart-close-btn" id="cartClose" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        <p>Your cart is empty.<br/>Add some shirts to get started!</p>
+        <button class="shop-link" onclick="document.getElementById('cartClose').click(); setTimeout(function(){document.getElementById('products').scrollIntoView({behavior:'smooth'})},300);">Browse Collection</button>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div id="freeShipBanner" style="display:none" class="free-ship-banner">&#127881; You've unlocked FREE shipping!</div>
+      <div class="cart-totals" id="cartTotals"></div>
+      <div class="shipping-selector" id="shippingSelector">
+        <label>Choose Shipping</label>
+        <div class="shipping-options">
+          <button class="ship-opt selected" data-rate="4.99" data-label="Standard" id="shipStd">
+            <span class="ship-opt-name">Standard</span>
+            <span class="ship-opt-price">$4.99</span>
+            <span class="ship-opt-days">5–7 business days</span>
+          </button>
+          <button class="ship-opt" data-rate="9.99" data-label="Priority" id="shipPri">
+            <span class="ship-opt-name">Priority</span>
+            <span class="ship-opt-price">$9.99</span>
+            <span class="ship-opt-days">2–3 business days</span>
+          </button>
+        </div>
+      </div>
+      <button class="btn-checkout" id="btnCheckout">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Proceed to Checkout
+      </button>
+      <p class="secure-note">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Secure checkout powered by Stripe
+      </p>
+    </div>
+  </aside>
+
+  <!-- CHECKOUT SUMMARY MODAL -->
+  <div class="checkout-overlay" id="checkoutOverlay" role="dialog" aria-modal="true" aria-label="Order summary">
+    <div class="checkout-modal">
+      <div class="checkout-modal-header">
+        <h2>&#128203; Order Summary</h2>
+        <button class="checkout-modal-close" id="checkoutClose" aria-label="Close order summary">&times;</button>
+      </div>
+      <div class="checkout-modal-body" id="checkoutBody"></div>
+    </div>
+  </div>
+
+  <!-- STICKY NAVIGATION -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="#" class="nav-brand" aria-label="EmpoweredWear by Dr. Tina The Bridge Builder — Home">
+        <img src="assets/logo_transparent.png" class="nav-logo" alt="EmpoweredWear by Dr. Tina The Bridge Builder logo" width="260" height="104" />
+      </a>
+      <button class="cart-btn" id="navCartBtn" aria-label="Open shopping cart">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        Cart
+        <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <img src="assets/logo_transparent.png" class="hero-logo reveal" alt="EmpoweredWear by Dr. Tina The Bridge Builder" width="340" height="136" />
+      <h1 class="hero-headline">
+        Inspiration you can wear.<br />
+        <em>Confidence you can feel.</em>
+      </h1>
+      <p class="hero-sub">Motivational apparel delivered worldwide.</p>
+      <button class="btn-shop" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Scroll
+    </div>
+  </header>
+
+  <!-- PRICING BANNER -->
+  <div class="pricing-note" role="note">
+    T-shirts start at <strong>$17.00</strong> &nbsp;|&nbsp;
+    Sizes 1X–3X: <strong>+$3.00</strong> ($20.00) &nbsp;|&nbsp;
+    Sizes 4X–6X: <strong>+$5.00</strong> ($22.00)
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <section id="products" aria-labelledby="products-heading">
+    <div class="container">
+      <h2 class="section-title reveal" id="products-heading">Featured Collection</h2>
+      <div class="gold-rule reveal delay-1"></div>
+      <p class="section-subtitle reveal delay-2">Choose your color &amp; size, then add to cart.</p>
+      <p class="section-subtitle reveal delay-3" style="margin-top:-.5rem;font-size:.9rem;"><strong>All shirts available in 11 colors.</strong> Select on each card.</p>
+
+      <div class="product-grid">
+
+        <!-- SWATCH TEMPLATE (used by all 7 cards) -->
+        <!-- Navy Blue, Royal Blue, Red, Black, Purple, Hot Pink, Maroon, Turquoise, Orange, Green, White -->
+
+        <!-- Card 1: My Moves – Purple -->
+        <article class="product-card reveal delay-1" aria-label="My Moves Tee – Purple"
+          data-name="My Moves Tee" data-default-color="Purple" data-img="assets/front_mymoves_purple.jpg">
+          <div class="card-img-wrap" onclick="toggleImgView(this)" title="Click to see front &amp; back">
+            <img class="img-front" src="assets/front_mymoves_purple.jpg" loading="lazy" alt="My Moves tee – front" width="512" height="1024" />
+            <img class="img-back" src="assets/back_mymoves_purple.jpg" loading="lazy" alt="My Moves tee – back" width="512" height="1024" />
+            <span class="img-toggle-badge">👆 Tap to see back</span>
+          </div>
+          <div class="card-body">
+            <p class="card-name">My Moves Tee – Purple</p>
+            <div class="price-block">
+              <span class="price-base">$17.00</span>
+              <p class="price-tiers">1X–3X: $20.00 &nbsp;|&nbsp; 4X–6X: $22.00</p>
+            </div>
+            <div class="color-picker">
+              <p class="color-label">Color: <span class="selected-name">Purple</span></p>
+              <div class="color-swatches">
+                <button class="swatch" style="background:#1a3a6b" title="Navy Blue" aria-label="Navy Blue"></button>
+                <button class="swatch" style="background:#4169e1" title="Royal Blue" aria-label="Royal Blue"></button>
+                <button class="swatch" style="background:#cc2200" title="Red" aria-label="Red"></button>
+                <button class="swatch" style="background:#111111" title="Black" aria-label="Black"></button>
+                <button class="swatch active" style="background:#6a0dad" title="Purple" aria-label="Purple"></button>
+                <button class="swatch" style="background:#ff69b4" title="Hot Pink" aria-label="Hot Pink"></button>
+                <button class="swatch" style="background:#800000" title="Maroon" aria-label="Maroon"></button>
+                <button class="swatch" style="background:#009C9A" title="Turquoise" aria-label="Turquoise"></button>
+                <button class="swatch" style="background:#e65c00" title="Orange" aria-label="Orange"></button>
+                <button class="swatch" style="background:#2e7d32" title="Green" aria-label="Green"></button>
+                <button class="swatch" style="background:#ffffff" title="White" aria-label="White"></button>
+              </div>
+            </div>
+            <div class="size-select-wrap">
+              <label for="size-mymoves">Select Size</label>
+              <select id="size-mymoves" class="size-select" aria-label="Select size">
+                <option value="S" data-price="17">S — $17.00</option>
+                <option value="M" data-price="17">M — $17.00</option>
+                <option value="L" data-price="17">L — $17.00</option>
+                <option value="XL" data-price="17">XL — $17.00</option>
+                <option value="1X" data-price="20">1X — $20.00</option>
+                <option value="2X" data-price="20">2X — $20.00</option>
+                <option value="3X" data-price="20">3X — $20.00</option>
+                <option value="4X" data-price="22">4X — $22.00</option>
+                <option value="5X" data-price="22">5X — $22.00</option>
+                <option value="6X" data-price="22">6X — $22.00</option>
+              </select>
+            </div>
+            <button class="btn-cart" aria-label="Add My Moves Tee to cart">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 2: She Prays Then Executes – Black -->
+        <article class="product-card reveal delay-2" aria-label="She Prays Then Executes Tee – Black"
+          data-name="She Prays Then Executes Tee" data-default-color="Black" data-img="assets/front_sheprays_black.jpg">
+          <div class="card-img-wrap" onclick="toggleImgView(this)" title="Click to see front &amp; back">
+            <img class="img-front" src="assets/front_sheprays_black.jpg" loading="lazy" alt="She Prays Then Executes tee – front" width="512" height="1024" />
+            <img class="img-back" src="assets/back_sheprays_black.jpg" loading="lazy" alt="She Prays Then Executes tee – back" width="512" height="1024" />
+            <span class="img-toggle-badge">👆 Tap to see back</span>
+          </div>
+          <div class="card-body">
+            <p class="card-name">She Prays Then Executes – Black</p>
+            <div class="price-block">
+              <span class="price-base">$17.00</span>
+              <p class="price-tiers">1X–3X: $20.00 &nbsp;|&nbsp; 4X–6X: $22.00</p>
+            </div>
+            <div class="color-picker">
+              <p class="color-label">Color: <span class="selected-name">Black</span></p>
+              <div class="color-swatches">
+                <button class="swatch" style="background:#1a3a6b" title="Navy Blue" aria-label="Navy Blue"></button>
+                <button class="swatch" style="background:#4169e1" title="Royal Blue" aria-label="Royal Blue"></button>
+                <button class="swatch" style="background:#cc2200" title="Red" aria-label="Red"></button>
+                <button class="swatch active" style="background:#111111" title="Black" aria-label="Black"></button>
+                <button class="swatch" style="background:#6a0dad" title="Purple" aria-label="Purple"></button>
+                <button class="swatch" style="background:#ff69b4" title="Hot Pink" aria-label="Hot Pink"></button>
+                <button class="swatch" style="background:#800000" title="Maroon" aria-label="Maroon"></button>
+                <button class="swatch" style="background:#009C9A" title="Turquoise" aria-label="Turquoise"></button>
+                <button class="swatch" style="background:#e65c00" title="Orange" aria-label="Orange"></button>
+                <button class="swatch" style="background:#2e7d32" title="Green" aria-label="Green"></button>
+                <button class="swatch" style="background:#ffffff" title="White" aria-label="White"></button>
+              </div>
+            </div>
+            <div class="size-select-wrap">
+              <label for="size-sheprays">Select Size</label>
+              <select id="size-sheprays" class="size-select" aria-label="Select size">
+                <option value="S" data-price="17">S — $17.00</option>
+                <option value="M" data-price="17">M — $17.00</option>
+                <option value="L" data-price="17">L — $17.00</option>
+                <option value="XL" data-price="17">XL — $17.00</option>
+                <option value="1X" data-price="20">1X — $20.00</option>
+                <option value="2X" data-price="20">2X — $20.00</option>
+                <option value="3X" data-price="20">3X — $20.00</option>
+                <option value="4X" data-price="22">4X — $22.00</option>
+                <option value="5X" data-price="22">5X — $22.00</option>
+                <option value="6X" data-price="22">6X — $22.00</option>
+              </select>
+            </div>
+            <button class="btn-cart" aria-label="Add She Prays Then Executes Tee to cart">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 3: Quitting Isn't an Option – Turquoise -->
+        <article class="product-card reveal delay-3" aria-label="Quitting Isn't an Option Tee – Turquoise"
+          data-name="Quitting Isn't an Option Tee" data-default-color="Turquoise" data-img="assets/front_quitting_teal.jpg">
+          <div class="card-img-wrap" onclick="toggleImgView(this)" title="Click to see front &amp; back">
+            <img class="img-front" src="assets/front_quitting_teal.jpg" loading="lazy" alt="Quitting Isn't an Option tee – front" width="512" height="1024" />
+            <img class="img-back" src="assets/back_quitting_teal.jpg" loading="lazy" alt="Quitting Isn't an Option tee – back" width="512" height="1024" />
+            <span class="img-toggle-badge">👆 Tap to see back</span>
+          </div>
+          <div class="card-body">
+            <p class="card-name">Quitting Isn't an Option – Turquoise</p>
+            <div class="price-block">
+              <span class="price-base">$17.00</span>
+              <p class="price-tiers">1X–3X: $20.00 &nbsp;|&nbsp; 4X–6X: $22.00</p>
+            </div>
+            <div class="color-picker">
+              <p class="color-label">Color: <span class="selected-name">Turquoise</span></p>
+              <div class="color-swatches">
+                <button class="swatch" style="background:#1a3a6b" title="Navy Blue" aria-label="Navy Blue"></button>
+                <button class="swatch" style="background:#4169e1" title="Royal Blue" aria-label="Royal Blue"></button>
+                <button class="swatch" style="background:#cc2200" title="Red" aria-label="Red"></button>
+                <button class="swatch" style="background:#111111" title="Black" aria-label="Black"></button>
+                <button class="swatch" style="background:#6a0dad" title="Purple" aria-label="Purple"></button>
+                <button class="swatch" style="background:#ff69b4" title="Hot Pink" aria-label="Hot Pink"></button>
+                <button class="swatch" style="background:#800000" title="Maroon" aria-label="Maroon"></button>
+                <button class="swatch active" style="background:#009C9A" title="Turquoise" aria-label="Turquoise"></button>
+                <button class="swatch" style="background:#e65c00" title="Orange" aria-label="Orange"></button>
+                <button class="swatch" style="background:#2e7d32" title="Green" aria-label="Green"></button>
+                <button class="swatch" style="background:#ffffff" title="White" aria-label="White"></button>
+              </div>
+            </div>
+            <div class="size-select-wrap">
+              <label for="size-quitting-teal">Select Size</label>
+              <select id="size-quitting-teal" class="size-select" aria-label="Select size">
+                <option value="S" data-price="17">S — $17.00</option>
+                <option value="M" data-price="17">M — $17.00</option>
+                <option value="L" data-price="17">L — $17.00</option>
+                <option value="XL" data-price="17">XL — $17.00</option>
+                <option value="1X" data-price="20">1X — $20.00</option>
+                <option value="2X" data-price="20">2X — $20.00</option>
+                <option value="3X" data-price="20">3X — $20.00</option>
+                <option value="4X" data-price="22">4X — $22.00</option>
+                <option value="5X" data-price="22">5X — $22.00</option>
+                <option value="6X" data-price="22">6X — $22.00</option>
+              </select>
+            </div>
+            <button class="btn-cart" aria-label="Add Quitting Isn't an Option Tee to cart">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </article>
+
+
+        <!-- Card 5: Watch My Comeback – Purple -->
+        <article class="product-card reveal delay-5" aria-label="Watch My Comeback Tee – Purple"
+          data-name="Watch My Comeback Tee" data-default-color="Purple" data-img="assets/front_comeback_purple.jpg">
+          <div class="card-img-wrap" onclick="toggleImgView(this)" title="Click to see front &amp; back">
+            <img class="img-front" src="assets/front_comeback_purple.jpg" loading="lazy" alt="Watch My Comeback tee – front" width="768" height="1024" />
+            <img class="img-back" src="assets/back_comeback_purple.jpg" loading="lazy" alt="Watch My Comeback tee – back" width="768" height="1024" />
+            <span class="img-toggle-badge">👆 Tap to see back</span>
+          </div>
+          <div class="card-body">
+            <p class="card-name">Watch My Comeback – Purple</p>
+            <div class="price-block">
+              <span class="price-base">$17.00</span>
+              <p class="price-tiers">1X–3X: $20.00 &nbsp;|&nbsp; 4X–6X: $22.00</p>
+            </div>
+            <div class="color-picker">
+              <p class="color-label">Color: <span class="selected-name">Purple</span></p>
+              <div class="color-swatches">
+                <button class="swatch" style="background:#1a3a6b" title="Navy Blue" aria-label="Navy Blue"></button>
+                <button class="swatch" style="background:#4169e1" title="Royal Blue" aria-label="Royal Blue"></button>
+                <button class="swatch" style="background:#cc2200" title="Red" aria-label="Red"></button>
+                <button class="swatch" style="background:#111111" title="Black" aria-label="Black"></button>
+                <button class="swatch active" style="background:#6a0dad" title="Purple" aria-label="Purple"></button>
+                <button class="swatch" style="background:#ff69b4" title="Hot Pink" aria-label="Hot Pink"></button>
+                <button class="swatch" style="background:#800000" title="Maroon" aria-label="Maroon"></button>
+                <button class="swatch" style="background:#009C9A" title="Turquoise" aria-label="Turquoise"></button>
+                <button class="swatch" style="background:#e65c00" title="Orange" aria-label="Orange"></button>
+                <button class="swatch" style="background:#2e7d32" title="Green" aria-label="Green"></button>
+                <button class="swatch" style="background:#ffffff" title="White" aria-label="White"></button>
+              </div>
+            </div>
+            <div class="size-select-wrap">
+              <label for="size-comeback">Select Size</label>
+              <select id="size-comeback" class="size-select" aria-label="Select size">
+                <option value="S" data-price="17">S — $17.00</option>
+                <option value="M" data-price="17">M — $17.00</option>
+                <option value="L" data-price="17">L — $17.00</option>
+                <option value="XL" data-price="17">XL — $17.00</option>
+                <option value="1X" data-price="20">1X — $20.00</option>
+                <option value="2X" data-price="20">2X — $20.00</option>
+                <option value="3X" data-price="20">3X — $20.00</option>
+                <option value="4X" data-price="22">4X — $22.00</option>
+                <option value="5X" data-price="22">5X — $22.00</option>
+                <option value="6X" data-price="22">6X — $22.00</option>
+              </select>
+            </div>
+            <button class="btn-cart" aria-label="Add Watch My Comeback Tee to cart">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 6: No More Shrinking – Navy -->
+        <article class="product-card reveal delay-6" aria-label="No More Shrinking Tee – Navy"
+          data-name="No More Shrinking Tee" data-default-color="Navy Blue" data-img="assets/front_noshrinking_navy.jpg">
+          <div class="card-img-wrap" onclick="toggleImgView(this)" title="Click to see front &amp; back">
+            <img class="img-front" src="assets/front_noshrinking_navy.jpg" loading="lazy" alt="No More Shrinking tee – front" width="512" height="1024" />
+            <img class="img-back" src="assets/back_noshrinking_navy.jpg" loading="lazy" alt="No More Shrinking tee – back" width="512" height="1024" />
+            <span class="img-toggle-badge">👆 Tap to see back</span>
+          </div>
+          <div class="card-body">
+            <p class="card-name">No More Shrinking – Navy</p>
+            <div class="price-block">
+              <span class="price-base">$17.00</span>
+              <p class="price-tiers">1X–3X: $20.00 &nbsp;|&nbsp; 4X–6X: $22.00</p>
+            </div>
+            <div class="color-picker">
+              <p class="color-label">Color: <span class="selected-name">Navy Blue</span></p>
+              <div class="color-swatches">
+                <button class="swatch active" style="background:#1a3a6b" title="Navy Blue" aria-label="Navy Blue"></button>
+                <button class="swatch" style="background:#4169e1" title="Royal Blue" aria-label="Royal Blue"></button>
+                <button class="swatch" style="background:#cc2200" title="Red" aria-label="Red"></button>
+                <button class="swatch" style="background:#111111" title="Black" aria-label="Black"></button>
+                <button class="swatch" style="background:#6a0dad" title="Purple" aria-label="Purple"></button>
+                <button class="swatch" style="background:#ff69b4" title="Hot Pink" aria-label="Hot Pink"></button>
+                <button class="swatch" style="background:#800000" title="Maroon" aria-label="Maroon"></button>
+                <button class="swatch" style="background:#009C9A" title="Turquoise" aria-label="Turquoise"></button>
+                <button class="swatch" style="background:#e65c00" title="Orange" aria-label="Orange"></button>
+                <button class="swatch" style="background:#2e7d32" title="Green" aria-label="Green"></button>
+                <button class="swatch" style="background:#ffffff" title="White" aria-label="White"></button>
+              </div>
+            </div>
+            <div class="size-select-wrap">
+              <label for="size-noshrinking">Select Size</label>
+              <select id="size-noshrinking" class="size-select" aria-label="Select size">
+                <option value="S" data-price="17">S — $17.00</option>
+                <option value="M" data-price="17">M — $17.00</option>
+                <option value="L" data-price="17">L — $17.00</option>
+                <option value="XL" data-price="17">XL — $17.00</option>
+                <option value="1X" data-price="20">1X — $20.00</option>
+                <option value="2X" data-price="20">2X — $20.00</option>
+                <option value="3X" data-price="20">3X — $20.00</option>
+                <option value="4X" data-price="22">4X — $22.00</option>
+                <option value="5X" data-price="22">5X — $22.00</option>
+                <option value="6X" data-price="22">6X — $22.00</option>
+              </select>
+            </div>
+            <button class="btn-cart" aria-label="Add No More Shrinking Tee to cart">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 7: Good God Almighty – Navy -->
+        <article class="product-card reveal delay-1" aria-label="Good God Almighty Tee – Navy"
+          data-name="Good God Almighty Tee" data-default-color="Navy Blue" data-img="assets/front_goodgod_navy.jpg">
+          <div class="card-img-wrap" onclick="toggleImgView(this)" title="Click to see front &amp; back">
+            <img class="img-front" src="assets/front_goodgod_navy.jpg" loading="lazy" alt="Good God Almighty tee – front" width="768" height="1024" />
+            <img class="img-back" src="assets/back_goodgod_navy.jpg" loading="lazy" alt="Good God Almighty tee – back" width="768" height="1024" />
+            <span class="img-toggle-badge">👆 Tap to see back</span>
+          </div>
+          <div class="card-body">
+            <p class="card-name">Good God Almighty – Navy</p>
+            <div class="price-block">
+              <span class="price-base">$17.00</span>
+              <p class="price-tiers">1X–3X: $20.00 &nbsp;|&nbsp; 4X–6X: $22.00</p>
+            </div>
+            <div class="color-picker">
+              <p class="color-label">Color: <span class="selected-name">Navy Blue</span></p>
+              <div class="color-swatches">
+                <button class="swatch active" style="background:#1a3a6b" title="Navy Blue" aria-label="Navy Blue"></button>
+                <button class="swatch" style="background:#4169e1" title="Royal Blue" aria-label="Royal Blue"></button>
+                <button class="swatch" style="background:#cc2200" title="Red" aria-label="Red"></button>
+                <button class="swatch" style="background:#111111" title="Black" aria-label="Black"></button>
+                <button class="swatch" style="background:#6a0dad" title="Purple" aria-label="Purple"></button>
+                <button class="swatch" style="background:#ff69b4" title="Hot Pink" aria-label="Hot Pink"></button>
+                <button class="swatch" style="background:#800000" title="Maroon" aria-label="Maroon"></button>
+                <button class="swatch" style="background:#009C9A" title="Turquoise" aria-label="Turquoise"></button>
+                <button class="swatch" style="background:#e65c00" title="Orange" aria-label="Orange"></button>
+                <button class="swatch" style="background:#2e7d32" title="Green" aria-label="Green"></button>
+                <button class="swatch" style="background:#ffffff" title="White" aria-label="White"></button>
+              </div>
+            </div>
+            <div class="size-select-wrap">
+              <label for="size-goodgod">Select Size</label>
+              <select id="size-goodgod" class="size-select" aria-label="Select size">
+                <option value="S" data-price="17">S — $17.00</option>
+                <option value="M" data-price="17">M — $17.00</option>
+                <option value="L" data-price="17">L — $17.00</option>
+                <option value="XL" data-price="17">XL — $17.00</option>
+                <option value="1X" data-price="20">1X — $20.00</option>
+                <option value="2X" data-price="20">2X — $20.00</option>
+                <option value="3X" data-price="20">3X — $20.00</option>
+                <option value="4X" data-price="22">4X — $22.00</option>
+                <option value="5X" data-price="22">5X — $22.00</option>
+                <option value="6X" data-price="22">6X — $22.00</option>
+              </select>
+            </div>
+            <button class="btn-cart" aria-label="Add Good God Almighty Tee to cart">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </article>
+
+      </div><!-- /.product-grid -->
+    </div><!-- /.container -->
+  </section>
+
+  <!-- MULTICOLOR NOTE -->
+  <div class="multicolor-strip">
+    <strong>All EmpoweredWear shirts are available in 11 colors:</strong>
+    Navy Blue &bull; Royal Blue &bull; Red &bull; Black &bull; Purple &bull; Hot Pink &bull; Maroon &bull; Turquoise &bull; Orange &bull; Green &bull; White
+  </div>
+
+  <!-- WHY EMPOWEREDWEAR -->
+  <section id="why" aria-labelledby="why-heading">
+    <div class="container">
+      <h2 class="section-title reveal" id="why-heading">Why EmpoweredWear?</h2>
+      <div class="gold-rule reveal delay-1"></div>
+      <p class="section-subtitle reveal delay-2">More than apparel — a movement you wear every day.</p>
+      <div class="why-grid">
+        <div class="why-card reveal delay-1">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <h3>Transformative Message</h3>
+          <p>Each design speaks life and possibility into the wearer and everyone around them.</p>
+        </div>
+        <div class="why-card reveal delay-2">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg></div>
+          <h3>Dr. Tina "The Bridge Builder"</h3>
+          <p>Transformation strategist and founder — every piece carries her vision of bridging potential to purpose.</p>
+        </div>
+        <div class="why-card reveal delay-3">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Quality Promise</h3>
+          <p>Soft, ringspun cotton with vibrant, lasting prints — comfort and durability you can feel wash after wash.</p>
+        </div>
+        <div class="why-card reveal delay-4">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+          <h3>Worldwide Shipping</h3>
+          <p>From our studio to your doorstep — wherever you are in the world, your message will find you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <h2 class="section-title reveal" id="testimonials-heading">What People Are Saying</h2>
+      <div class="gold-rule reveal delay-1"></div>
+      <p class="section-subtitle reveal delay-2">Real words from real people who wear their message.</p>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial-card reveal delay-1">
+          <p class="testimonial-text">"You are helping others build bridges to get to the other side… inspiring hope that they CAN get to the other side."</p>
+        </blockquote>
+        <blockquote class="testimonial-card reveal delay-2">
+          <p class="testimonial-text">"You have mastered breaking down vital concepts on a level that connects with everyone."</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIPPING SECTION -->
+  <section id="shipping" aria-labelledby="shipping-heading">
+    <div class="container">
+      <h2 class="section-title reveal" id="shipping-heading">Shipping Information</h2>
+      <div class="gold-rule reveal delay-1"></div>
+      <p class="section-subtitle reveal delay-2">Fast, affordable delivery straight to your door.</p>
+      <div class="shipping-grid">
+        <div class="shipping-card reveal delay-1">
+          <span class="shipping-icon">📦</span>
+          <h3>Standard Domestic</h3>
+          <p class="shipping-price">$4.99</p>
+          <p>Flat-rate shipping on all U.S. orders. Delivered in 5–7 business days.</p>
+        </div>
+        <div class="shipping-card reveal delay-2">
+          <span class="shipping-icon">🚀</span>
+          <h3>Priority Shipping</h3>
+          <p class="shipping-price">$9.99</p>
+          <p>Get your order faster — delivered in 2–3 business days.</p>
+        </div>
+        <div class="shipping-card featured reveal delay-3">
+          <span class="shipping-icon">🎉</span>
+          <h3>Free Shipping</h3>
+          <p class="shipping-price free">FREE</p>
+          <p>On all U.S. orders <strong>$75.00 and over</strong>. No code needed — applied automatically at checkout.</p>
+        </div>
+      </div>
+      <p class="shipping-note reveal delay-4">All orders are processed within 1–2 business days. <strong>Free shipping automatically applied on qualifying orders over $75.</strong></p>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="container">
+      <h2>Ready to wear your message?</h2>
+      <button class="btn-shop" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <img src="assets/logo_transparent.png" class="footer-logo" alt="EmpoweredWear by Dr. Tina The Bridge Builder" width="220" height="88" />
+      <div class="footer-contact">
+        <a href="mailto:empoweredwearbydrtina@gmail.com" aria-label="Email EmpoweredWear">empoweredwearbydrtina@gmail.com</a>
+        <a href="tel:+16014794457" aria-label="Call EmpoweredWear" style="display:block;margin-top:.4rem;color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem;">(601) 479-4457</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://instagram.com/empoweredwearbydrtina" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="EmpoweredWear on Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1Fa19AaNey/?mibextid=wwXIfr" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="EmpoweredWear on Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://tiktok.com/@empoweredwearbydrtina" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="EmpoweredWear on TikTok">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2026 EmpoweredWear by Dr. Tina &bull; The Bridge Builder. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ─── CONSTANTS ──────────────────────────────── */
+    var API_BASE = window.location.origin;
+    var FREE_SHIP_THRESHOLD = 75;
+    var SHIP_RATES = { standard: 4.99, priority: 9.99 };
+
+    /* ─── CART STATE ─────────────────────────────── */
+    // ── Front/Back image toggle ──
+    function toggleImgView(wrap) {
+      var isBack = wrap.classList.toggle('show-back');
+      var badge = wrap.querySelector('.img-toggle-badge');
+      if (badge) badge.textContent = isBack ? '\ud83d\udc46 Tap to see front' : '\ud83d\udc46 Tap to see back';
+    }
+    // Expose globally so onclick="" works
+    window.toggleImgView = toggleImgView;
+
+    var cart = [];
+    var selectedShipping = 'standard'; // 'standard' | 'priority' | 'free'
+
+    /* ─── DOM REFS ───────────────────────────────── */
+    var cartDrawer      = document.getElementById('cartDrawer');
+    var cartOverlay     = document.getElementById('cartOverlay');
+    var cartItemsEl     = document.getElementById('cartItems');
+    var cartEmptyEl     = document.getElementById('cartEmpty');
+    var cartFooterEl    = document.getElementById('cartFooter');
+    var cartTotalsEl    = document.getElementById('cartTotals');
+    var cartCountEl     = document.getElementById('cartCount');
+    var navCartBtn      = document.getElementById('navCartBtn');
+    var cartCloseBtn    = document.getElementById('cartClose');
+    var btnCheckout     = document.getElementById('btnCheckout');
+    var checkoutOverlay = document.getElementById('checkoutOverlay');
+    var checkoutClose   = document.getElementById('checkoutClose');
+    var checkoutBody    = document.getElementById('checkoutBody');
+    var freeShipBanner  = document.getElementById('freeShipBanner');
+    var shippingSelector = document.getElementById('shippingSelector');
+    var shipStd         = document.getElementById('shipStd');
+    var shipPri         = document.getElementById('shipPri');
+
+    /* ─── OPEN / CLOSE CART ──────────────────────── */
+    function openCart() {
+      cartDrawer.classList.add('open');
+      cartOverlay.classList.add('open');
+      cartDrawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCart() {
+      cartDrawer.classList.remove('open');
+      cartOverlay.classList.remove('open');
+      cartDrawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    navCartBtn.addEventListener('click', openCart);
+    cartCloseBtn.addEventListener('click', closeCart);
+    cartOverlay.addEventListener('click', closeCart);
+
+    /* ─── SHIPPING SELECTOR ──────────────────────── */
+    function getShippingCost(sub) {
+      if (sub >= FREE_SHIP_THRESHOLD) return 0;
+      return selectedShipping === 'priority' ? SHIP_RATES.priority : SHIP_RATES.standard;
+    }
+
+    function updateShippingUI(sub) {
+      var isFree = sub >= FREE_SHIP_THRESHOLD;
+      // Show/hide free shipping banner
+      freeShipBanner.style.display = isFree ? '' : 'none';
+      // Show/hide shipping selector (hide when free)
+      shippingSelector.style.display = isFree ? 'none' : '';
+      // Update standard ship opt to show FREE if threshold met
+      if (isFree) {
+        shipStd.querySelector('.ship-opt-price').textContent = 'FREE';
+        shipStd.querySelector('.ship-opt-price').classList.add('free-color');
+      } else {
+        shipStd.querySelector('.ship-opt-price').textContent = '$4.99';
+        shipStd.querySelector('.ship-opt-price').classList.remove('free-color');
+      }
+    }
+
+    shipStd.addEventListener('click', function() {
+      selectedShipping = 'standard';
+      shipStd.classList.add('selected');
+      shipPri.classList.remove('selected');
+      renderCart();
+    });
+    shipPri.addEventListener('click', function() {
+      selectedShipping = 'priority';
+      shipPri.classList.add('selected');
+      shipStd.classList.remove('selected');
+      renderCart();
+    });
+
+    /* ─── HELPERS ────────────────────────────────── */
+    function fmt(n) { return '$' + n.toFixed(2); }
+
+    /* ─── RENDER CART ────────────────────────────── */
+    function renderCart() {
+      // Badge count
+      var totalQty = cart.reduce(function(s,i){ return s + i.qty; }, 0);
+      cartCountEl.textContent = totalQty;
+      cartCountEl.classList.add('bump');
+      setTimeout(function(){ cartCountEl.classList.remove('bump'); }, 300);
+
+      if (cart.length === 0) {
+        cartItemsEl.innerHTML = '';
+        cartItemsEl.appendChild(cartEmptyEl);
+        cartEmptyEl.style.display = '';
+        cartFooterEl.style.display = 'none';
+        return;
+      }
+
+      cartEmptyEl.style.display = 'none';
+      cartFooterEl.style.display = '';
+
+      // Build items HTML
+      var html = '';
+      cart.forEach(function(item, idx) {
+        html +=
+          '<div class="cart-item" data-idx="' + idx + '">' +
+            '<img class="cart-item-img" src="' + item.img + '" alt="' + item.name + '" />' +
+            '<div class="cart-item-details">' +
+              '<p class="cart-item-name">' + item.name + '</p>' +
+              '<p class="cart-item-meta">Color: ' + item.color + ' &nbsp;&bull;&nbsp; Size: ' + item.size + '</p>' +
+              '<div class="cart-item-bottom">' +
+                '<div class="qty-controls">' +
+                  '<button class="qty-btn" data-action="dec" data-idx="' + idx + '" aria-label="Decrease quantity">&#8722;</button>' +
+                  '<span class="qty-display">' + item.qty + '</span>' +
+                  '<button class="qty-btn" data-action="inc" data-idx="' + idx + '" aria-label="Increase quantity">&#43;</button>' +
+                '</div>' +
+                '<span class="cart-item-price">' + fmt(item.price * item.qty) + '</span>' +
+              '</div>' +
+              '<button class="remove-btn" data-idx="' + idx + '">&#10005; Remove</button>' +
+            '</div>' +
+          '</div>';
+      });
+      cartItemsEl.innerHTML = html;
+
+      // Qty buttons
+      cartItemsEl.querySelectorAll('.qty-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = parseInt(btn.getAttribute('data-idx'));
+          if (btn.getAttribute('data-action') === 'inc') {
+            cart[idx].qty++;
+          } else {
+            cart[idx].qty--;
+            if (cart[idx].qty <= 0) cart.splice(idx, 1);
+          }
+          renderCart();
+        });
+      });
+
+      // Remove buttons
+      cartItemsEl.querySelectorAll('.remove-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = parseInt(btn.getAttribute('data-idx'));
+          cart.splice(idx, 1);
+          renderCart();
+        });
+      });
+
+      // Totals
+      var sub = cart.reduce(function(s,i){ return s + i.price * i.qty; }, 0);
+      var ship = getShippingCost(sub);
+      var grand = sub + ship;
+
+      updateShippingUI(sub);
+
+      var shipLabel = ship === 0 ? '<span class="free-ship">FREE &#127881;</span>' :
+        (selectedShipping === 'priority' ? fmt(ship) + ' <small>(priority)</small>' : fmt(ship) + ' <small>(standard)</small>');
+
+      cartTotalsEl.innerHTML =
+        '<div class="cart-total-row"><span>Subtotal (' + totalQty + ' item' + (totalQty !== 1 ? 's' : '') + ')</span><span>' + fmt(sub) + '</span></div>' +
+        '<div class="cart-total-row"><span>Shipping</span><span>' + shipLabel + '</span></div>' +
+        '<div class="cart-total-row grand"><span>Order Total</span><span class="total-amt">' + fmt(grand) + '</span></div>';
+
+      // Update checkout button text with total
+      btnCheckout.innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+        'Checkout &mdash; ' + fmt(grand);
+    }
+
+    /* ─── ADD TO CART ────────────────────────────── */
+    document.querySelectorAll('.btn-cart').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var card = btn.closest('.product-card');
+
+        var name = card.getAttribute('data-name') || 'EmpoweredWear Tee';
+        var img  = card.getAttribute('data-img') || 'assets/front_mymoves_purple.jpg';
+
+        // Color
+        var colorEl = card.querySelector('.selected-name');
+        var color = colorEl ? colorEl.textContent.trim() : (card.getAttribute('data-default-color') || 'Black');
+
+        // Size & price
+        var sizeSelect = card.querySelector('.size-select');
+        var size = sizeSelect ? sizeSelect.value : 'M';
+        var selectedOpt = sizeSelect ? sizeSelect.options[sizeSelect.selectedIndex] : null;
+        var price = selectedOpt ? parseFloat(selectedOpt.getAttribute('data-price')) : 17;
+
+        // Merge duplicates
+        var key = name + '|' + color + '|' + size;
+        var existing = cart.find(function(i){ return i.key === key; });
+        if (existing) {
+          existing.qty++;
+        } else {
+          cart.push({ key: key, name: name, color: color, size: size, price: price, qty: 1, img: img });
+        }
+
+        // Button feedback
+        var origHTML = btn.innerHTML;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Added!';
+        btn.classList.add('added');
+        setTimeout(function() {
+          btn.innerHTML = origHTML;
+          btn.classList.remove('added');
+        }, 1800);
+
+        renderCart();
+        openCart();
+      });
+    });
+
+    /* ─── CHECKOUT MODAL ─────────────────────────── */
+    btnCheckout.addEventListener('click', function() {
+      if (cart.length === 0) return;
+      closeCart();
+
+      var sub = cart.reduce(function(s,i){ return s + i.price * i.qty; }, 0);
+      var ship = getShippingCost(sub);
+      var grand = sub + ship;
+      var shipMethodLabel = ship === 0 ? 'Free Shipping' :
+        (selectedShipping === 'priority' ? 'Priority ($9.99)' : 'Standard ($4.99)');
+
+      var lines = cart.map(function(item) {
+        return '<div class="order-line">' +
+          '<div>' +
+            '<p class="order-line-name">' + item.name + ' &times;' + item.qty + '</p>' +
+            '<p class="order-line-meta">Color: ' + item.color + ' &nbsp;&bull;&nbsp; Size: ' + item.size + '</p>' +
+          '</div>' +
+          '<span class="order-line-price">' + fmt(item.price * item.qty) + '</span>' +
+        '</div>';
+      }).join('');
+
+      checkoutBody.innerHTML =
+        '<p style="font-size:.85rem;color:var(--gray);margin-bottom:1rem;line-height:1.5;">Review your order below. Click <strong>Complete Purchase</strong> to pay securely via Stripe.</p>' +
+        lines +
+        '<div class="order-summary-totals">' +
+          '<div class="order-sum-row"><span>Subtotal</span><span>' + fmt(sub) + '</span></div>' +
+          '<div class="order-sum-row"><span>Shipping (' + shipMethodLabel + ')</span><span>' +
+            (ship === 0 ? '<span class="free">FREE &#127881;</span>' : fmt(ship)) +
+          '</span></div>' +
+          '<div class="order-sum-row grand"><span>Order Total</span><span>' + fmt(grand) + '</span></div>' +
+        '</div>' +
+        '<p class="checkout-note">&#128274; Secure checkout powered by Stripe. Your order details are sent automatically.</p>' +
+        '<button id="btnPay" class="btn-pay" style="border:none;cursor:pointer;width:100%;">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+          'Complete Purchase &mdash; ' + fmt(grand) +
+        '</button>';
+
+      // Wire up the pay button to call the backend
+      var btnPay = document.getElementById('btnPay');
+      btnPay.addEventListener('click', function() {
+        btnPay.disabled = true;
+        btnPay.textContent = 'Redirecting to Stripe...';
+
+        var items = cart.map(function(item) {
+          return { name: item.name, color: item.color, size: item.size, quantity: item.qty };
+        });
+
+        fetch(API_BASE + '/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: items,
+            success_url: window.location.origin + '/?order=success',
+            cancel_url: window.location.origin + '/'
+          })
+        })
+        .then(function(res) {
+          if (!res.ok) return res.json().then(function(d){ throw new Error(d.detail || 'Server error'); });
+          return res.json();
+        })
+        .then(function(data) {
+          if (data.url) {
+            window.location.href = data.url;
+          } else {
+            throw new Error('No checkout URL returned');
+          }
+        })
+        .catch(function(err) {
+          btnPay.disabled = false;
+          btnPay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Complete Purchase &mdash; ' + fmt(grand);
+          alert('Checkout error: ' + err.message + '\nPlease try again or contact us.');
+        });
+      });
+
+      checkoutOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    checkoutClose.addEventListener('click', function() {
+      checkoutOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    checkoutOverlay.addEventListener('click', function(e) {
+      if (e.target === checkoutOverlay) {
+        checkoutOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    /* ─── COLOR SWATCH SYNC ──────────────────────── */
+    document.querySelectorAll('.color-picker').forEach(function(picker) {
+      picker.querySelectorAll('.swatch').forEach(function(sw) {
+        sw.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var card = sw.closest('.product-card');
+          var colorName = sw.getAttribute('title');
+          // Update all swatches in this card
+          card.querySelectorAll('.swatch').forEach(function(s) {
+            s.classList.toggle('active', s.getAttribute('title') === colorName);
+          });
+          // Update color label
+          var lbl = card.querySelector('.selected-name');
+          if (lbl) lbl.textContent = colorName;
+        });
+      });
+    });
+
+    /* ─── SCROLL REVEAL ──────────────────────────── */
+    (function() {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function(el){ el.classList.add('visible'); });
+        return;
+      }
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function(el){ obs.observe(el); });
+    })();
+
+    /* ─── LAZY HERO BG ───────────────────────────── */
+    (function() {
+      var heroBg = document.querySelector('.hero-bg');
+      if (!heroBg) return;
+      var img = new Image();
+      img.onload = function(){ heroBg.style.backgroundImage = "url('assets/hero.jpg')"; };
+      img.src = 'assets/hero.jpg';
+    })();
+
+    /* Init */
+    renderCart();
+  })();
+  </script>
+
+</body>
+</html>
