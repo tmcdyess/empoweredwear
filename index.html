@@ -687,7 +687,7 @@
         <!-- Navy Blue, Royal Blue, Red, Black, Purple, Hot Pink, Maroon, Turquoise, Orange, Green, White -->
 
         <!-- Card 1: My Moves – Purple -->
-        <article class="product-card reveal delay-1" aria-label="My Moves Tee – Purple"
+        <article class="product-card reveal visible delay-1" aria-label="My Moves Tee – Purple"
           data-name="My Moves Tee" data-default-color="Purple" data-img="assets/front_mymoves_purple.jpg">
           <div class="card-img-wrap" onclick="toggleImgView(this)" title="Click to see front &amp; back">
             <img class="img-front" src="assets/front_mymoves_purple.jpg" loading="eager" alt="My Moves tee – front" width="512" height="1024" />
@@ -739,7 +739,7 @@
         </article>
 
         <!-- Card 2: She Prays Then Executes – Black -->
-        <article class="product-card reveal delay-2" aria-label="She Prays Then Executes Tee – Black"
+        <article class="product-card reveal visible delay-2" aria-label="She Prays Then Executes Tee – Black"
           data-name="She Prays Then Executes Tee" data-default-color="Black" data-img="assets/front_sheprays_black.jpg">
           <div class="card-img-wrap" onclick="toggleImgView(this)" title="Click to see front &amp; back">
             <img class="img-front" src="assets/front_sheprays_black.jpg" loading="eager" alt="She Prays Then Executes tee – front" width="512" height="1024" />
@@ -791,7 +791,7 @@
         </article>
 
         <!-- Card 3: Quitting Isn't an Option – Turquoise -->
-        <article class="product-card reveal delay-3" aria-label="Quitting Isn't an Option Tee – Turquoise"
+        <article class="product-card reveal visible delay-3" aria-label="Quitting Isn't an Option Tee – Turquoise"
           data-name="Quitting Isn't an Option Tee" data-default-color="Turquoise" data-img="assets/front_quitting_teal.jpg">
           <div class="card-img-wrap" onclick="toggleImgView(this)" title="Click to see front &amp; back">
             <img class="img-front" src="assets/front_quitting_teal.jpg" loading="eager" alt="Quitting Isn't an Option tee – front" width="512" height="1024" />
@@ -1464,7 +1464,7 @@
             obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
+      }, { threshold: 0, rootMargin: '0px 0px 50px 0px' });
       els.forEach(function(el){ obs.observe(el); });
     })();
 
