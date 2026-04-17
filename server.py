@@ -8,7 +8,7 @@ Shipping options are shown dynamically based on order subtotal.
 import os
 import stripe
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -175,5 +175,20 @@ async def health():
     return {"status": "ok", "service": "EmpoweredWear Checkout API"}
 
 
-# ── Serve static files (the landing page) ────────────────────────────────────
+# ── Serve index.html with no-cache headers ───────────────────────────────────
+@app.get("/", response_class=HTMLResponse)
+async def serve_index():
+    """Serve index.html with no-cache headers to ensure fresh content on every deploy."""
+    with open("index.html", "r", encoding="utf-8") as f:
+        content = f.read()
+    return HTMLResponse(
+        content=content,
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0",
+        },
+    )
+
+# ── Serve static files (assets, JS, CSS, etc.) ───────────────────────────────
 app.mount("/", StaticFiles(directory=".", html=True), name="static")
