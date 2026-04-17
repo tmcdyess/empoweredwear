@@ -22,18 +22,18 @@ stripe.api_key = os.environ.get("STRIPE_SECRET_KEY")
 # Override with PRODUCTION_DOMAIN env var on your host (e.g. Render).
 PRODUCTION_DOMAIN = os.environ.get("PRODUCTION_DOMAIN", "https://empoweredwearbydrtina.com")
 
-# Stripe Price IDs per size (from TshirtPrompts.docx)
-PRICE_IDS = {
-    "S":  "price_1TG2o8I2HBlCm4koQSprLsZ1",
-    "M":  "price_1TG2o8I2HBlCm4koXQxsLtdu",
-    "L":  "price_1TG2o8I2HBlCm4koo3SBYTSY",
-    "XL": "price_1TG2o8I2HBlCm4kobCqlOjJi",
-    "1X": "price_1TG2o8I2HBlCm4ko2CYIcu1k",
-    "2X": "price_1TG2o8I2HBlCm4ko9X8qjBvr",
-    "3X": "price_1TG2o8I2HBlCm4kovLFbhsYq",
-    "4X": "price_1TG2o8I2HBlCm4kowkcoITfo",
-    "5X": "price_1TG2o8I2HBlCm4kov508eGUH",
-    "6X": "price_1TG2o8I2HBlCm4kobtDdprKr",
+# Price in cents per size tier
+PRICE_CENTS = {
+    "S":  1700,
+    "M":  1700,
+    "L":  1700,
+    "XL": 1700,
+    "1X": 2000,
+    "2X": 2000,
+    "3X": 2000,
+    "4X": 2200,
+    "5X": 2200,
+    "6X": 2200,
 }
 
 FREE_SHIP_THRESHOLD = 7500  # $75.00 in cents
@@ -118,22 +118,26 @@ async def create_checkout_session(req: CheckoutRequest):
 
     for item in req.items:
         size_key = item.size.strip().upper()
-        price_id = PRICE_IDS.get(size_key)
-        if not price_id:
+        unit_amount = PRICE_CENTS.get(size_key)
+        if not unit_amount:
             raise HTTPException(
                 status_code=400,
-                detail=f"Unknown size '{item.size}'. Valid sizes: {list(PRICE_IDS.keys())}"
+                detail=f"Unknown size '{item.size}'. Valid sizes: {list(PRICE_CENTS.keys())}"
             )
+        # Build a descriptive line item so customers see exactly what they ordered
+        # on the Stripe Checkout page (e.g. "My Moves Tee — Purple, Size M")
         line_items.append({
-            "price": price_id,
+            "price_data": {
+                "currency": "usd",
+                "unit_amount": unit_amount,
+                "product_data": {
+                    "name": f"{item.name} — {item.color}, Size {item.size}",
+                    "description": "EmpoweredWear by Dr. Tina",
+                },
+            },
             "quantity": item.quantity,
         })
-        # Retrieve price amount to calculate subtotal for shipping logic
-        try:
-            price_obj = stripe.Price.retrieve(price_id)
-            subtotal_cents += (price_obj.unit_amount or 0) * item.quantity
-        except Exception:
-            pass  # If retrieval fails, default to showing paid shipping
+        subtotal_cents += unit_amount * item.quantity
 
     # Choose shipping options based on subtotal:
     # - Always show Standard, Priority, and In-Person Pickup
