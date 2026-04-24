@@ -24,16 +24,16 @@ PRODUCTION_DOMAIN = os.environ.get("PRODUCTION_DOMAIN", "https://empoweredwearby
 
 # Price in cents per size tier
 PRICE_CENTS = {
-    "S":  1700,
-    "M":  1700,
-    "L":  1700,
-    "XL": 1700,
-    "1X": 2000,
-    "2X": 2000,
-    "3X": 2000,
-    "4X": 2200,
-    "5X": 2200,
-    "6X": 2200,
+    "S":  1899,
+    "M":  1899,
+    "L":  1899,
+    "XL": 1899,
+    "1X": 2199,
+    "2X": 2199,
+    "3X": 2199,
+    "4X": 2399,
+    "5X": 2399,
+    "6X": 2399,
 }
 
 FREE_SHIP_THRESHOLD = 7500  # $75.00 in cents
@@ -154,6 +154,8 @@ async def create_checkout_session(req: CheckoutRequest):
         session = stripe.checkout.Session.create(
             line_items=line_items,
             mode="payment",
+            # Explicitly list payment methods to exclude Link
+            payment_method_types=["card", "afterpay_clearpay", "klarna"],
             shipping_options=shipping_options,
             shipping_address_collection={"allowed_countries": ["US"]},
             success_url=success_url,
